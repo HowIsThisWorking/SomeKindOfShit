@@ -1,0 +1,183 @@
+<tw-storydata name="a" startnode="1" creator="Twine" creator-version="2.2.1" ifid="EA998FC9-626F-4E36-9D94-DD8737389071" zoom="0.6" format="Adventures" format-version="1.1.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">window.config = {
+  "enableStats": true,
+  "stats": [
+    {
+      name: "Strength"
+    },
+    {
+      name: "Dexterity"
+    },
+    {
+      name: "Intelligence"
+    },
+		{
+			name: "Charisma"
+		},
+  ]
+};
+
+
+</script><tw-passagedata pid="1" name="Beginig" tags="" position="1162.0000000000002,0" size="100,100">&lt;%
+story.config.displayCharacterPanel = false;
+%&gt;
+
+Hi, stranger. What&#39;s your name?
+&lt;p&gt;&lt;input onchange=&quot;character.name = this.value&quot; /&gt;&lt;/p&gt;
+I offer you to chose your class at this journery
+
+[[Thief|Second]]
+[[Warrior|Third]]
+[[Magician|Fourth]]</tw-passagedata><tw-passagedata pid="2" name="Second" tags="" position="830.0000000000001,131.33333333333331" size="100,100">&lt;%
+story.config.displayCharacterPanel = true;
+character.addStat(&quot;Strength&quot;, 3)
+character.addStat(&quot;Dexterity&quot;, 8)
+character.addStat(&quot;Intelligence&quot;, 5)
+character.addStat(&quot;Charisma&quot;, 6)
+%&gt;
+You woke up in bed, not remembering anything that happened last night. Next to you was a closet with things that most likely belonged to you. There lay a some gold, which you probably saved for a black day, dagger with a shabby handle and a skipper, or something like that ...
+&lt;%
+character.addGold(45);
+story.addLootItem(&quot;dagger&quot;);
+story.addLootItem(&quot;scepter&quot;);
+story.addLootItem(&quot;wooden-shield&quot;);
+%&gt;
+Going out, you decided to ask a man who was probably drunk in the morning, where the market is, because you wanted food.
+&lt;% if (character.hasStat(&quot;Charisma&quot;,6)) { %&gt;
+[[-- Sir, do not tell me where the market is?-&gt;Agree]]
+[[-- Where is the market, you drunk asshole?-&gt;Disagree]]
+[[Don&#39;t ask him-&gt;Ignore]]
+&lt;% } else { %&gt;
+[[-- Where is the market, you drunk asshole?-&gt;Disagree]]
+[[Don&#39;t ask him-&gt;Ignore]]
+&lt;% } %&gt;</tw-passagedata><tw-passagedata pid="3" name="Third" tags="" position="1425.3333333333335,111.33333333333331" size="100,100">&lt;%
+story.config.displayCharacterPanel = true;
+character.addStat(&quot;Strength&quot;, 6)
+character.addStat(&quot;Dexterity&quot;, 4)
+character.addStat(&quot;Intelligence&quot;, 3)
+character.addStat(&quot;Charisma&quot;, 3)
+%&gt;
+You woke up in bed, not remembering anything that happened last night. Next to you was a closet with things that most likely belonged to you. There lay a some gold, which you probably saved for a black day, dagger with a shabby handle and a skipper, or something like that ...
+&lt;%
+character.addGold(45);
+story.addLootItem(&quot;sword&quot;);
+story.addLootItem(&quot;shield&quot;);
+%&gt;
+Going out, you decided to ask a man who was probably drunk in the morning, where the market is, because you wanted food.
+&lt;% if (character.hasStat(&quot;Charisma&quot;,6)) { %&gt;
+[[-- Sir, do not tell me where the market is?-&gt;Agree]]
+[[-- Where is the market, you drunk asshole?-&gt;Disagree]]
+[[Don&#39;t ask him-&gt;Ignore]]
+&lt;% } else { %&gt;
+[[-- Where is the market, you drunk asshole?-&gt;Disagree]]
+[[Don&#39;t ask him-&gt;Ignore]]
+&lt;% } %&gt;
+</tw-passagedata><tw-passagedata pid="4" name="Fourth" tags="" position="1152.0000000000002,274.66666666666663" size="100,100">&lt;%
+story.config.displayCharacterPanel = true;
+character.addStat(&quot;Strength&quot;, 3)
+character.addStat(&quot;Dexterity&quot;, 4)
+character.addStat(&quot;Intelligence&quot;, 7)
+character.addStat(&quot;Charisma&quot;, 5)
+%&gt;
+You woke up in bed, not remembering anything that happened last night. Next to you was a closet with things that most likely belonged to you. There lay a some gold, which you probably saved for a black day, dagger with a shabby handle and a skipper, or something like that ...
+&lt;%
+character.addGold(45);
+story.addLootItem(&quot;scepter&quot;);
+%&gt;
+Going out, you decided to ask a man who was probably drunk in the morning, where the market is, because you wanted food.
+&lt;% if (character.hasStat(&quot;Charisma&quot;,6)) { %&gt;
+[[-- Sir, do not tell me where the market is?-&gt;Agree]]
+[[-- Where is the market, you drunk asshole?-&gt;Disagree]]
+[[Don&#39;t ask him-&gt;Ignore]]
+&lt;% } else { %&gt;
+[[-- Where is the market, you drunk asshole?-&gt;Disagree]]
+[[Don&#39;t ask him-&gt;Ignore]]
+&lt;% } %&gt;</tw-passagedata><tw-passagedata pid="5" name="Agree" tags="" position="1116.666666666667,534.6666666666666" size="100,100">The man kindly decided to help you and now you are going to city-market. The path was not so long but by the way you are hungry. Gladly you were not so far from tavern. Entering the tavern, you sat down at the nearest to exit tabel and call waiter. After your lunch waiter voiced the check
+-- 25 gold, sir.
+&lt;% if (character.hasStat(&quot;Charisma&quot;,6)) { %&gt;
+[[-- Can we understand each other?-&gt;Sale]]
+[[Pay-&gt;Pay]]
+&lt;% } else { %&gt;
+[[Заплатить-&gt;Pay]]
+&lt;% } %&gt;
+&lt;% if (character.hasStat(&quot;Dexterity&quot;, 6)) { %&gt;
+[[Run away-&gt;run away]]
+&lt;% } else { %&gt;
+[[Pay-&gt;Pay]]
+&lt;% } %&gt;</tw-passagedata><tw-passagedata pid="6" name="Disagree" tags="" position="820.0000000000001,351.3333333333333" size="100,100">&lt;%character.damage(8)%&gt;
+
+
+&lt;% if (character.hasStat(&quot;Charisma&quot;,6)) { %&gt;
+[[-- Мы можем договориться?-&gt;Sale]]
+[[Заплатить-&gt;Pay]]
+&lt;% } else { %&gt;
+[[Заплатить-&gt;Pay]]
+&lt;% } %&gt;
+&lt;% if (character.hasStat(&quot;Dexterity&quot;, 6)) { %&gt;
+[[Убежать-&gt;run away]]
+&lt;% } else { %&gt;
+[[Заплатить-&gt;Pay]]
+&lt;% } %&gt;</tw-passagedata><tw-passagedata pid="7" name="Ignore" tags="" position="1433.3333333333335,377.99999999999994" size="100,100">&lt;% character.damage(5)%&gt;
+At the end you finaly found market, but it&#39;s took much time and energy. Gladly you were not so far from tavern. Entering the tavern, you sat down at the nearest to exit tabel and call waiter. After your lunch waiter voiced the check
+-- 25 gold, sir. 
+&lt;% if (character.hasStat(&quot;Charisma&quot;,6)) { %&gt;
+[[-- Мы можем договориться?-&gt;Sale]]
+[[Заплатить-&gt;Pay]]
+&lt;% } else { %&gt;
+[[Заплатить-&gt;Pay]]
+&lt;% } %&gt;
+&lt;% if (character.hasStat(&quot;Dexterity&quot;, 6)) { %&gt;
+[[Убежать-&gt;run away]]
+&lt;% } else { %&gt;
+[[Заплатить-&gt;Pay]]
+&lt;% } %&gt;</tw-passagedata><tw-passagedata pid="8" name="Pay" tags="" position="861.6666666666667,644.6666666666667" size="100,100">&lt;%character.heal(8)%&gt;
+&lt;%character.removeGold(15)%&gt;
+You leaved cafe and decided to walk around market. You met the seller what tryed to sell weapon. You ask for the price of the sword. The merchant, after peaking at your purse, agrees to sell it to you for 10 gold.
+&lt;% if (character.gold &gt;= 10) { %&gt;
+    [[&quot;Okay !&quot;|Buy the sword0]]
+&lt;% } %&gt;
+
+[[&quot;I don&#39;t want it&quot;|Continue]]</tw-passagedata><tw-passagedata pid="9" name="run away" tags="" position="1588.3333333333335,668" size="100,100">&lt;%character.heal(8)%&gt;
+Seems you didn&#39;t agree to pay so big price and decided to run away. Gladly or not you did it. But of course you can&#39;t come here 5 days or whole week. Wana try to do it again? 
+[[Of course I do -&gt; Mecenary]]
+[[Maybe later -&gt; Mecenary]]
+</tw-passagedata><tw-passagedata pid="10" name="Sale" tags="" position="1357.6666666666665,724.6666666666667" size="100,100">Thanks to your incredible charm and manipulate skills, the hostess of the tavern almost gladly agreed to reduce the price of food, and in the end you paid 15 gold and leave tavern
+&lt;%character.heal(8)%&gt;
+
+
+[[Walk around more -&gt;Buy the sword0]] </tw-passagedata><tw-passagedata pid="11" name=" Mecenary" tags="" position="1789.3333333333333,551.3333333333334" size="100,100">After all those action you decided to walk around market. By walking you met the merchant The merchant must have sold a lot of goods today, as his purse looked full
+
+&lt;% if (character.hasStat(&quot;Dexterity&quot;, 8)) { %&gt;
+  [[Steal the purse of the merchant|Steal]]
+&lt;% } else { %&gt;
+  It&#39;d be too hard to steal without being seen.
+&lt;% } %&gt;</tw-passagedata><tw-passagedata pid="12" name="Buy the sword0" tags="" position="1149.3333333333335,844.6666666666667" size="100,100">&lt;%character.removeGold(15)%&gt;
+You met the seller what tryed to sell weapon. You ask for the price of the sword. The merchant, after peaking at your purse, agrees to sell it to you for 10 gold.
+&lt;% if (character.gold &gt;= 10) { %&gt;
+    [[&quot;Okay !&quot;|Buy the sword]]
+&lt;% } %&gt;
+
+[[&quot;I don&#39;t want it&quot;|Continue]]
+[[Go further-&gt; Continue2]]
+[[Ask other items-&gt; shop]]</tw-passagedata><tw-passagedata pid="13" name="Continue" tags="" position="932.6666666666666,864.6666666666667" size="100,100">&quot;Well, come back soon!&quot;, said Mecenary. 
+[[Go further-&gt; Continue2]]</tw-passagedata><tw-passagedata pid="14" name="Steal" tags="" position="1912.6666666666667,854.6666666666666" size="100,100">&lt;%character.addGold(100)%&gt;
+So... you did it. Without any think, what now he can&#39;t feed his family. You&#39;re like predator. Stealing and killing without any mercy. But wait.    Mecenary still close and you can return purse to his owner. What are you suposed to do?
+&lt;% if (character.hasStat(&quot;Charisma&quot;,5)) { %&gt;
+[[-- Sir, you dropped your purse. -&gt; Gentelman-thief path]]
+[[Go away with gold -&gt; Evil thief path]]
+&lt;% } %&gt;</tw-passagedata><tw-passagedata pid="15" name=" Continue2" tags="" position="959.3333333333333,1084.6666666666667" size="100,100">Сделайте двойной щелчок мышью на этом параграфе, чтобы отредактировать его.</tw-passagedata><tw-passagedata pid="16" name=" shop" tags="" position="1196,1064.6666666666667" size="100,100">Сделайте двойной щелчок мышью на этом параграфе, чтобы отредактировать его.</tw-passagedata><tw-passagedata pid="17" name=" Gentelman-thief path" tags="" position="1734.3333333333335,1034.6666666666667" size="100,100">&lt;%character.removeGold(100)%&gt;
+&quot;Oh, thank you very much. I thought I can&#39;t find it anymore. Actualy I can offer items in my friend&#39;s shop for lower price as a graditude.&quot;
+[[Go with merchant -&gt;Buy the sword2]] 
+[[Refuse -&gt; Continue2]] 
+</tw-passagedata><tw-passagedata pid="18" name=" Evil thief path" tags="" position="2087.666666666667,1078" size="100,100">So... You did the bad thing again. are you enjoing it? Are blame yourself? Or yo living by &quot;Strongest eats weakest&quot;? 
+Well... That dosen&#39;t matter anymore. You stealed money and leave him foodless. Good Job for a rocky Evil Overlord. So, what&#39;s your next move?
+[[Go explore world -&gt; Evil thief path]]
+To explore world you need something to eat and defend yourself. Wana go to weapon seller?
+[[Go buy weapon and food-&gt;Buy the sword0]] </tw-passagedata><tw-passagedata pid="19" name="Buy the sword" tags="" position="1322.6666666666667,941.3333333333334" size="100,100">&lt;%
+character.removeGold(10); 
+character.inventory.addItem(&quot;sword&quot;);
+%&gt;
+Wait, sir! Do you wana buy someyhing else? Maybe armor or shield? I have a nice one for just 15 gold. 
+[[Of course. -&gt; shop]] </tw-passagedata><tw-passagedata pid="20" name="Buy the sword2" tags="" position="1534.3333333333335,1184.6666666666667" size="100,100">So you went with merchant to his friend&#39;s weapon shop. When they met each other merchant explained the situation and asked discount for you. Seller agreed and offered you a sword for 5 gold.
+[[Buy the sword -&gt; AAA]] 
+[[Say thank you and refuse -&gt; BBB]]</tw-passagedata><tw-passagedata pid="21" name=" AAA" tags="" position="1741.0000000000002,1334.6666666666667" size="100,100">&lt;%character.removeGold(5)%&gt;</tw-passagedata><tw-passagedata pid="22" name=" BBB" tags="" position="1377.6666666666667,1351.3333333333335" size="100,100">Сделайте двойной щелчок мышью на этом параграфе, чтобы отредактировать его.</tw-passagedata></tw-storydata>
